@@ -3,7 +3,7 @@ Just need to run `./start_infra` script to run all containers: eureka, config, e
 
 ## Files you need to add
 ### .configuration-server-env
-Add a new file .configuration-server-env with this data within the project root folder
+Add a new file `.configuration-server-env` with this data within the project root folder
 ```
 # replace the values for yours
 spring.cloud.config.server.git.username=<repo-username>
