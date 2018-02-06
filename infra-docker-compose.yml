@@ -34,6 +34,27 @@ services:
     logging:
         driver: json-file
 
+  zuul:
+    container_name: zuul
+    hostname: zuul
+    image: dev-it/devit-zuul-server:latest
+    expose:
+      - 9090
+    ports:
+      - 9090:9090
+    networks:
+      - devit-network
+    environment:
+      - spring.cloud.config.label=master
+      - spring.profiles.active=docker
+    links:
+      - eureka
+    depends_on:
+      - configuration-server
+      - eureka
+    logging:
+      driver: json-file
+
 networks:
   devit-network:
     driver: bridge
